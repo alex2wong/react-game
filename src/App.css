@@ -47,3 +47,18 @@
 .content {
   padding: 10px;
 }
+
+.cell-style {
+  border: 1px solid #555;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align:  center;
+}
+.cell-style:hover {
+  background: #ddd;
+  transition: background .6s;
+}
+.highlight {
+  background: #11aa66;
+}
