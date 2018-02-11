@@ -4,8 +4,16 @@ import { Route, Redirect, Switch, Link, StaticRouter } from 'react-router-dom';
 import LoginForm from '../components/login/login';
 import Interfaces from '../components/network/interface';
 import Dashboard from '../components/dashboard/dashboard'
+import {RouteDemo} from '../common/routerdemo'
 
 const { Header, Sider, Content } = Layout;
+const BASE_NAME = "";
+const paths = {
+    home: BASE_NAME + '/',
+    dashboard: BASE_NAME + '/dashboard',
+    login: BASE_NAME + '/login',
+    network: BASE_NAME + '/network'
+}
 
 export default class Routes extends React.Component {
     constructor(props) {
@@ -31,7 +39,7 @@ export default class Routes extends React.Component {
                         <Menu.Item key="1">
                             <Icon type="pie-chart" />
                             <span>Dashboard</span>
-                            <Link to="Dashboard" ></Link>
+                            <Link to="dashboard" ></Link>
                         </Menu.Item>
                         <Menu.Item key="2">
                             <Icon type="desktop" />
@@ -41,16 +49,16 @@ export default class Routes extends React.Component {
                         <Menu.Item key="3">
                             <Icon type="user" />
                             <span>Login</span>
-                            <Link to="Login" ></Link>
+                            <Link to="login" ></Link>
                         </Menu.Item>
                     </Menu>
                 </Sider>
                 <Content className="content">
-                    <Route exact path="/react-game" component={Dashboard} />
-                    <Route path="/react-game/dashboard" component={Dashboard} />
+                    <Route exact path={paths.home} component={Dashboard} />
+                    <Route path={paths.dashboard} component={Dashboard} />
                     {/* <StaticRouter basename='/' location="/login" context={LoginForm} /> */}
-                    <Route exact path="/react-game/login" component={LoginForm} />
-                    <Route path="/react-game/network/" component={Interfaces} />
+                    <Route exact path={paths.login} component={LoginForm} />
+                    <Route path={paths.network} component={Interfaces} />
                 </Content>
             </Layout>
         );
