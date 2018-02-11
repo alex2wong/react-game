@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Menu, Icon, Layout} from 'antd';
-import { Route, Redirect, Switch, Link } from 'react-router-dom';
+import { Route, Redirect, Switch, Link, StaticRouter } from 'react-router-dom';
 import LoginForm from '../components/login/login';
 import Interfaces from '../components/network/interface';
 import Dashboard from '../components/dashboard/dashboard'
@@ -46,10 +46,11 @@ export default class Routes extends React.Component {
                     </Menu>
                 </Sider>
                 <Content className="content">
-                    <Route exact path="/" component={Dashboard} />
-                    <Route path="/dashboard" component={Dashboard} />
-                    <Route exact path="/login" component={LoginForm} />
-                    <Route path="/network/" component={Interfaces} />
+                    <Route exact path="/react-game" component={Dashboard} />
+                    <Route path="/react-game/dashboard" component={Dashboard} />
+                    {/* <StaticRouter basename='/' location="/login" context={LoginForm} /> */}
+                    <Route exact path="/react-game/login" component={LoginForm} />
+                    <Route path="/react-game/network/" component={Interfaces} />
                 </Content>
             </Layout>
         );
