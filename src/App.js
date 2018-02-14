@@ -6,6 +6,7 @@ import './App.css';
 import 'antd/dist/antd.css';
 import Routes from './routes';
 import { BrowserRouter } from 'react-router-dom';
+import {RouteDemo} from './common/routerdemo'
 
 const SubMenu = Menu.SubMenu;
 const {Header} = Layout;
@@ -28,9 +29,10 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Flight Control Center </h1>
         </Header>
-        <BrowserRouter>
+        {/* <BrowserRouter>
           <Routes />
-        </BrowserRouter>
+        </BrowserRouter> */}
+        <RouteDemo />
       </Layout>
     );
   }

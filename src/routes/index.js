@@ -4,7 +4,6 @@ import { Route, Redirect, Switch, Link, StaticRouter } from 'react-router-dom';
 import LoginForm from '../components/login/login';
 import Interfaces from '../components/network/interface';
 import Dashboard from '../components/dashboard/dashboard'
-import {RouteDemo} from '../common/routerdemo'
 
 const { Header, Sider, Content } = Layout;
 const BASE_NAME = "";

@@ -9,6 +9,7 @@ const unRegister = (comp) =>
 // trigger 遍历routes 并且渲染components ? 
 export const historyPush = (path) => {
     window.history.pushState({}, null, path);
+    console.log(`path ${path} pushed to history, forceUpdate components`);
     instances.forEach(instance => instance.forceUpdate())
 }
 
@@ -33,6 +34,7 @@ export class Link extends Component {
     handleClick = (event) => {
         event.preventDefault();
         const {to} = this.props;
+        console.warn("ready to push url from Link to history, then render components.");
         // 推到历史记录中，方便back 和 forward
         historyPush(to);
     }
@@ -40,7 +42,7 @@ export class Link extends Component {
     render() {
         const {to, children} = this.props;
         return (
-            <a href={to} onClick={this.handleClick} >
+            <a className="navItem" href={to} onClick={this.handleClick} >
                 {children}
                 </a>
         )
@@ -60,13 +62,15 @@ export class Route extends Component {
     }
 
     render() {
+        console.warn("judge component, path:"+ this.props.path);
         const {path, component, exact} = this.props;
         const match = matchPath(window.location.pathname, {path, exact});
 
         if (!match) return null;
 
         if (component) {
-            return React.createElement(Component);
+            console.warn(`matched path: ${path}, ready to create Component`);
+            return React.createElement(component);
         }
     }
 

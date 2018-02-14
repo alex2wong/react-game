@@ -1,0 +1,20 @@
+@keyframes afadeIn {
+    0% {
+        opacity: 0.1;
+        transform: translateX(-1000);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.fadeIn {
+    animation-fill-mode: forwards;
+    animation: afadeIn 1.2s;
+}
+
+.navItem {
+    padding: 1vh;
+    list-style: none;
+}
